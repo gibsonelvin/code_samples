@@ -16,7 +16,7 @@
 
 `notebook_converter` - I was tasked with converting a slew of Jupyter Notebooks into actual python modules, I wrote this script to do the work for me. This gets the notebooks into actual python files.
 
-`user_management_system` - A full stack web development example, from scratch! Including an ORM, Main JS object for UI/UX features, and CSS animations. This was a request for a coding sample, all code is original, and no libraries were used. All functionality is from scratch, Vanilla JS, PHP, HTML5, CSS3.
+`user_management_system` - A full stack web development example, from scratch! Including an ORM, Main JS object for UI/UX features, and CSS animations. This was a request for a coding sample, all code is original, and no libraries were used. All functionality is from scratch, Vanilla JS, PHP, HTML5, CSS3. Here is a description of each file:
 
 	Users class - extends Base `Model` class, which includes necessary functions
 
