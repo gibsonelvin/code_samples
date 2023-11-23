@@ -1,3 +1,5 @@
+// OBJECTIVE - write an algorithm that translates a matrix into a rotated version of itself
+
 let outputMatrix = [];
 
 // For perfect squares only
