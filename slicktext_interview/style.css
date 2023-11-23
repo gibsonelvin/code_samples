@@ -1,0 +1,326 @@
+body {
+    color: #EEEEEE;
+    background: #cccccc;
+    font-family: Calibri;
+}
+@keyframes slideIn {
+    0% {top: -25%;}
+    100% {top: 25%}
+}
+@keyframes slideOut {
+    0% {top: 25%}
+    100% {top: -25%;}
+}
+@keyframes fadeOut {
+    0% {opacity: 1; margin-top: -340px;}
+    100% {opacity: 0; margin-top: -1000px;}
+}
+@keyframes fadeIn {
+    0% {opacity: 0; margin-top: -1000px;}
+    100% {opacity: 1; margin-top: -340px;}
+}
+.slidein {
+    animation: slideIn 2s;
+}
+.slideout {
+    animation: slideOut 2s;
+}
+.fadeout {
+    animation: fadeOut 2s;
+}
+.fadein {
+    animation: fadeIn 2s;
+}
+div.action_modal_back {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: .7;
+    z-index: 2;
+    display:none;
+}
+div.action_modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-top: -340px;
+    margin-left: -200px;
+    height: 620px;
+    width: 400px;
+    background: #FFFFFF;
+    z-index: 13;
+    padding-right: 15px;
+    padding-left: 15px;
+    display:none;
+    box-shadow: 0 0 8px 2px #000;
+    color: #444444;
+}
+#modal_message {
+    padding: 15px;
+}
+#modal_frame {
+    width: 98%;
+    height: 96%;
+    position: absolute;
+    left: 1%;
+    top: 2%;
+    background: #ffffff;
+    color: #000055;
+    font-size: 36pt;
+    text-align: center;
+    box-shadow: 0 0 5px 1px inset #3E4A57;
+}
+#msg_modal {
+    display: none;
+    width: 50%;
+    height: 50%;
+    position: fixed;
+    left: 25%;
+    top: 25%;
+    background: #b0b0b0;
+    color: #000055;
+    font-size: 36pt;
+    text-align: center;
+    box-shadow: 0 0 5px 1px #3E4A57;
+}
+#no_records {
+    margin-left: 45px;
+}
+#message {
+    text-align: center;
+}
+#form_error {
+    height: 30px;
+    color: #F00;
+    font-size: 10pt;
+    margin-top: -20px;
+    text-align: center;
+}
+div.close_button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #FF0000;
+    color: #FFF;
+    width: 30px;
+    height: 25px;
+    clear: both;
+    text-align: center;
+    font-weight: 700;
+    box-shadow: 0 0 2px 0 #000;
+}
+div.form_label {
+    clear:both;
+    width: 400px;
+    float:left;
+    text-align: center;;
+}
+div.form_field {
+    clear:right;
+    width: 400px;
+    float:left;
+    padding-bottom: 5px;
+    text-align: center;
+}
+div.form_submit {
+    padding-top: 15px;
+    width: 400px;
+    clear: both;
+    float: left;
+    text-align: center;
+}
+div.header_back h1 {
+    position: absolute;
+    margin-top: 120px;
+    left: 50%;
+}
+div.header_back {
+    position:absolute;
+    width:90%;
+    height:200px;
+    left: 5%;
+    top: 0;
+    background: #6777a5;
+    box-shadow: 0 0 5px 1px #3E4A57;
+    text-align:center;
+    z-index: -1;
+}
+div.body_back {
+    width: 90%;
+    height: 800px;
+    position: absolute;
+    left: 5%;
+    top: 0;
+    padding-top:200px;
+    background: #EEEEFF;
+    box-shadow: 0 0 5px 1px #3E4A57;
+    z-index: -2;
+    text-align: center;
+}
+div.body_back h3,
+div.body_back table {
+    color: #333333;
+}
+div.body_back table {
+    background: #3E4A57;
+    border-radius: 10px;
+    width: 90%;
+}
+div.body_back table th {
+    background: #08163D;
+    color: #EEEEEE;
+}
+div.body_back table tr:last-child td {
+    border-bottom: 1px ridge #6777a5;
+}
+div.body_back table td {
+    background: #EEEEFF;
+}
+div.body_back table td:first-child {
+    border-left: 1px ridge #6777a5;
+}
+div.body_back table td:last-child {
+    border-right: 1px ridge #6777a5;
+}
+div.body_back table th:first-child {
+    border-top-left-radius: 10px;
+}
+div.body_back table td:nth-child(even) {
+    background: #DDDDEE;
+}
+div.body_back table th:nth-child(15) {
+    border-top-right-radius: 10px;
+}
+.flink:hover {
+    cursor: pointer;
+}
+td.icon {
+    font-size:24pt;
+}
+div.new_button {
+    position: absolute;
+    left: 50%;
+    margin-left: 43px;
+    top: 218px;
+    font-size: 14pt;
+    padding: 2px;
+    background: green;
+    color: white;
+    width: 29px;
+    height: 23px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    box-shadow: 0 0 4px 3px inset #45ca02;
+    border-radius: 4px;
+}
+th.column_head {
+    width: 200px;
+}
+img.main {
+    position: absolute;
+    left: 50%;
+    width: 1300px;
+    margin-left: -650px;
+    padding-top: 15px;
+    height:150px;
+}
+@media only screen and (max-width: 1400px) {
+    .column9,
+    .column10,
+    .column11,
+    .column12,
+    .column13,
+    .column14 {
+        display:none;
+    }
+    img.main {
+        position: absolute;
+        left: 50%;
+        width: 1100px;
+        margin-left: -550px;
+        padding-top: 15px;
+        height:150px;
+    }
+    div.header_back h1 {
+        font-size:18pt;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .column6,
+    .column7,
+    .column8,
+    .column9,
+    .column10,
+    .column11,
+    .column12,
+    .column13,
+    .column14 {
+        display:none;
+    }
+    img.main {
+        position: absolute;
+        left: 50%;
+        width: 900px;
+        margin-left: -450px;
+        padding-top: 15px;
+        height:150px;
+    }
+    div.header_back h1 {
+        font-size:16pt;
+    }
+}
+@media only screen and (max-width: 750px) {
+    .column5,
+    .column6,
+    .column7,
+    .column8,
+    .column9,
+    .column10,
+    .column11,
+    .column12,
+    .column13,
+    .column14 {
+        display:none;
+    }
+    img.main {
+        position: absolute;
+        left: 50%;
+        width: 500px;
+        margin-left: -250px;
+        padding-top: 15px;
+        height:150px;
+    }
+    div.header_back h1 {
+        font-size:12pt;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .column4,
+    .column5,
+    .column6,
+    .column7,
+    .column8,
+    .column9,
+    .column10,
+    .column11,
+    .column12,
+    .column13,
+    .column14 {
+        display:none;
+    }
+    img.main {
+        position: absolute;
+        left: 50%;
+        width: 350px;
+        margin-left: -175px;
+        padding-top: 15px;
+        height:150px;
+    }
+    div.header_back h1 {
+        font-size:10pt;
+    }
+}
