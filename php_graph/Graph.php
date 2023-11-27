@@ -108,10 +108,10 @@ class Graph
      * Sets DB creds for queries
      */
     static function loadDBCredentials() {
-        self::$dbhost = "192.168.2.15";
-        self::$dbuser = "elving";
-        self::$dbpass = "100788";
-        self::$dbts = "portfolio";
+        self::$dbhost = "127.0.0.1";
+        self::$dbuser = "DBUSER";
+        self::$dbpass = "DBPASS";
+        self::$dbts = "DB_NAME";
     }
 
     /**
