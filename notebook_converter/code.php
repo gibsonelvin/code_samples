@@ -28,8 +28,7 @@ $codeLines = array_filter($codeLines, function($e) {
 	} else {
 		return "...";
 	}
-	}
-);
+});
 
 $fh = fopen($newFileName, "w");
 fwrite($fh, join("", $codeLines));
