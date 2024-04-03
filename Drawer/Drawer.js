@@ -102,13 +102,13 @@ class Drawer {
 		if(this.drawing) {
 			let [x, y] = this.getElementOffset(e.clientX, e.clientY);
 			if(this.tool === 'pencil') {
-                this.drawFree(x, y);
+		                this.drawFree(x, y);
 			} else if(this.tool === 'circle') {
-                this.drawCircle(x, y);
+		                this.drawCircle(x, y);
 			} else if(this.tool === 'rectangle') {
-                this.drawRectangle(x, y);
+		                this.drawRectangle(x, y);
 			} else if(this.tool === 'line') {
-                this.drawLine(x, y);
+                		this.drawLine(x, y);
 			}
 		}
 	}
