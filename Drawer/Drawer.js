@@ -72,12 +72,12 @@ class Drawer {
 	draw(e) {
 		let x = e.clientX;
 		let y = e.clientY;
-        if(this.tool === 'text') {
-            this.drawText(x, y);
-            this.drawing = 0;
-        } else {
-            this.drawing = 1;
-        }
+	        if(this.tool === 'text') {
+        	    this.drawText(x, y);
+	            this.drawing = 0;
+	        } else {
+        	    this.drawing = 1;
+	        }
 	}
 
 	endDraw() {
