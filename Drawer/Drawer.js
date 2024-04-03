@@ -19,7 +19,7 @@ class Drawer {
 	}
 
 	log(msg) {
-        // TODO: Add filter for log level
+		// TODO: Add filter for log level
 		console.log(msg);
 	}
 
@@ -72,23 +72,23 @@ class Drawer {
 	draw(e) {
 		let x = e.clientX;
 		let y = e.clientY;
-	        if(this.tool === 'text') {
-        	    this.drawText(x, y);
-	            this.drawing = 0;
-	        } else {
-        	    this.drawing = 1;
-	        }
+		if(this.tool === 'text') {
+			this.drawText(x, y);
+			this.drawing = 0;
+		} else {
+			this.drawing = 1;
+		}
 	}
 
 	endDraw() {
-        if(this.drawing === 1) {
-            this.drawing = 0;
-            this.commitPath();
-        }
+		if(this.drawing === 1) {
+			this.drawing = 0;
+			this.commitPath();
+		}
 	}
 
 	getElementOffset(x, y) {
-        // TODO: Take in account the element's location if not 0,0
+		// TODO: Take in account the element's location if not 0,0
 		return [x, y];
 	}
 
@@ -102,115 +102,115 @@ class Drawer {
 		if(this.drawing) {
 			let [x, y] = this.getElementOffset(e.clientX, e.clientY);
 			if(this.tool === 'pencil') {
-		                this.drawFree(x, y);
+						this.drawFree(x, y);
 			} else if(this.tool === 'circle') {
-		                this.drawCircle(x, y);
+						this.drawCircle(x, y);
 			} else if(this.tool === 'rectangle') {
-		                this.drawRectangle(x, y);
+						this.drawRectangle(x, y);
 			} else if(this.tool === 'line') {
-                		this.drawLine(x, y);
+						this.drawLine(x, y);
 			}
 		}
 	}
 
-    drawFree(x, y) {
-        if(!this.pathInitialized) {
-            this.pathInitialized = true;
-            this.pathNode = document.createElement("path");
-            this.pathNode.setAttribute("id", "path_" + this.pathI);
-            this.pathNode.setAttribute("d", "M" + x + " " + y);
-            this.pathNode.setAttribute("style", "fill: none;stroke: " + this.currentColor + ";stroke-width: 3;");
-            this.canvas.appendChild(this.pathNode);
+	drawFree(x, y) {
+		if(!this.pathInitialized) {
+			this.pathInitialized = true;
+			this.pathNode = document.createElement("path");
+			this.pathNode.setAttribute("id", "path_" + this.pathI);
+			this.pathNode.setAttribute("d", "M" + x + " " + y);
+			this.pathNode.setAttribute("style", "fill: none;stroke: " + this.currentColor + ";stroke-width: 3;");
+			this.canvas.appendChild(this.pathNode);
 
-        } else {
-            this.pathNode.setAttribute("d", this.pathNode.getAttribute("d") + " L" + x + " " + y);
-            this.lastPath = this.pathI;
-            this.redraw();
-        }
-    }
+		} else {
+			this.pathNode.setAttribute("d", this.pathNode.getAttribute("d") + " L" + x + " " + y);
+			this.lastPath = this.pathI;
+			this.redraw();
+		}
+	}
 
-    drawCircle(x, y) {
-        if(!this.pathInitialized) {
-            this.pathInitialized = true;
-            this.circleStartX = x;
-            this.circleStartY = y;
-            this.pathNode = document.createElement("circle");
-            this.pathNode.setAttribute("id", "path_" + this.pathI);
-            this.pathNode.setAttribute("r", "1");
-            this.pathNode.setAttribute("cx", x);
-            this.pathNode.setAttribute("cy", y);
-            this.pathNode.setAttribute("style", "fill: none;stroke: " + this.currentColor + ";stroke-width: 3;");
-            this.canvas.appendChild(this.pathNode);
+	drawCircle(x, y) {
+		if(!this.pathInitialized) {
+			this.pathInitialized = true;
+			this.circleStartX = x;
+			this.circleStartY = y;
+			this.pathNode = document.createElement("circle");
+			this.pathNode.setAttribute("id", "path_" + this.pathI);
+			this.pathNode.setAttribute("r", "1");
+			this.pathNode.setAttribute("cx", x);
+			this.pathNode.setAttribute("cy", y);
+			this.pathNode.setAttribute("style", "fill: none;stroke: " + this.currentColor + ";stroke-width: 3;");
+			this.canvas.appendChild(this.pathNode);
 
-        } else {
-            let radius = this.calculateDistance(this.circleStartX, x, this.circleStartY, y);
-            this.pathNode.setAttribute("r", radius);
-            this.lastPath = this.pathI;
-            this.redraw();
-        }
-    }
+		} else {
+			let radius = this.calculateDistance(this.circleStartX, x, this.circleStartY, y);
+			this.pathNode.setAttribute("r", radius);
+			this.lastPath = this.pathI;
+			this.redraw();
+		}
+	}
 
-    drawLine(x, y) {
-        if(!this.pathInitialized) {
-            this.pathInitialized = true;
-            this.pathNode = document.createElement("line");
-            this.pathNode.setAttribute("id", "path_" + this.pathI);
-            this.pathNode.setAttribute("x1", x);
-            this.pathNode.setAttribute("y1", y);
-            this.pathNode.setAttribute("style", "fill: none;stroke: " + this.currentColor + ";stroke-width: 3;");
-            this.canvas.appendChild(this.pathNode);
+	drawLine(x, y) {
+		if(!this.pathInitialized) {
+			this.pathInitialized = true;
+			this.pathNode = document.createElement("line");
+			this.pathNode.setAttribute("id", "path_" + this.pathI);
+			this.pathNode.setAttribute("x1", x);
+			this.pathNode.setAttribute("y1", y);
+			this.pathNode.setAttribute("style", "fill: none;stroke: " + this.currentColor + ";stroke-width: 3;");
+			this.canvas.appendChild(this.pathNode);
 
-        } else {
-            this.pathNode.setAttribute("x2", x);
-            this.pathNode.setAttribute("y2", y);
-            this.lastPath = this.pathI;
-            this.redraw();
-        }
-    }
+		} else {
+			this.pathNode.setAttribute("x2", x);
+			this.pathNode.setAttribute("y2", y);
+			this.lastPath = this.pathI;
+			this.redraw();
+		}
+	}
 
-    drawRectangle(x, y) {
-        if(!this.pathInitialized) {
-            this.pathInitialized = true;
-            this.rectStartX = x;
-            this.rectStartY = y;
-            this.pathNode = document.createElement("rect");
-            this.pathNode.setAttribute("id", "path_" + this.pathI);
-            this.pathNode.setAttribute("x", x);
-            this.pathNode.setAttribute("y", y);
-            this.pathNode.setAttribute("style", "fill: none;stroke: " + this.currentColor + ";stroke-width: 3;");
-            this.canvas.appendChild(this.pathNode);
+	drawRectangle(x, y) {
+		if(!this.pathInitialized) {
+			this.pathInitialized = true;
+			this.rectStartX = x;
+			this.rectStartY = y;
+			this.pathNode = document.createElement("rect");
+			this.pathNode.setAttribute("id", "path_" + this.pathI);
+			this.pathNode.setAttribute("x", x);
+			this.pathNode.setAttribute("y", y);
+			this.pathNode.setAttribute("style", "fill: none;stroke: " + this.currentColor + ";stroke-width: 3;");
+			this.canvas.appendChild(this.pathNode);
 
-        } else {
-            let rectWidth = x - this.rectStartX;
-            let rectHeight = y - this.rectStartY;
+		} else {
+			let rectWidth = x - this.rectStartX;
+			let rectHeight = y - this.rectStartY;
 
-            this.pathNode.setAttribute("width", rectWidth);
-            this.pathNode.setAttribute("height", rectHeight);
-            this.lastPath = this.pathI;
-            this.redraw();
-        }
-    }
+			this.pathNode.setAttribute("width", rectWidth);
+			this.pathNode.setAttribute("height", rectHeight);
+			this.lastPath = this.pathI;
+			this.redraw();
+		}
+	}
 
-    drawText(x, y) {
-        if(!this.pathInitialized) {
-            let newText = prompt("Enter image text:");
-            this.pathInitialized = true;
-            this.pathNode = document.createElement("text");
-            this.pathNode.setAttribute("id", "path_" + this.pathI);
-            this.pathNode.setAttribute("x", x);
-            this.pathNode.setAttribute("y", y);
-            this.pathNode.setAttribute("stroke", this.currentColor);
-            this.pathNode.setAttribute("fill", "none");
-            this.pathNode.setAttribute("font-size", 36);
-            this.pathNode.setAttribute("style", "stroke-width: 1;");
-            this.pathNode.innerHTML = newText;
-            this.canvas.appendChild(this.pathNode);
-            this.commitPath();
-        }
-    }
+	drawText(x, y) {
+		if(!this.pathInitialized) {
+			let newText = prompt("Enter image text:");
+			this.pathInitialized = true;
+			this.pathNode = document.createElement("text");
+			this.pathNode.setAttribute("id", "path_" + this.pathI);
+			this.pathNode.setAttribute("x", x);
+			this.pathNode.setAttribute("y", y);
+			this.pathNode.setAttribute("stroke", this.currentColor);
+			this.pathNode.setAttribute("fill", "none");
+			this.pathNode.setAttribute("font-size", 36);
+			this.pathNode.setAttribute("style", "stroke-width: 1;");
+			this.pathNode.innerHTML = newText;
+			this.canvas.appendChild(this.pathNode);
+			this.commitPath();
+		}
+	}
 
 	commitPath() {
-		//	pathNode.setAttribute("d", pathNode.getAttribute("d") + " Z");
+	//	pathNode.setAttribute("d", pathNode.getAttribute("d") + " Z");
 		this.paths.push(this.pathI);
 		this.lastPath = this.pathI;
 		this.pathI++;
@@ -221,13 +221,12 @@ class Drawer {
 		this.pathNode = null;
 		this.circleStartX = null;
 		this.circleStartY = null;
-        this.rectStartX = null;
-        this.rectStartY = null;
-
+		this.rectStartX = null;
+		this.rectStartY = null;
 	}
 
 	redraw() {
-        let canvasParent = this.canvas.parentNode;
+		let canvasParent = this.canvas.parentNode;
 		let tmpParentBody = canvasParent.innerHTML;
 		canvasParent.innerHTML = "";
 		canvasParent.innerHTML = tmpParentBody;
@@ -235,10 +234,10 @@ class Drawer {
 		this.pathNode = document.querySelector('#path_' + this.lastPath);
 	}
 
-    save() {
-        let serializer = new XMLSerializer();
-        let sourceStr = serializer.serializeToString(this.canvas);
-        let url = "save_svg.php?data=" + encodeURIComponent(sourceStr);
-        window.open(url, '_blank');
-    }
+	save() {
+		let serializer = new XMLSerializer();
+		let sourceStr = serializer.serializeToString(this.canvas);
+		let url = "save_svg.php?data=" + encodeURIComponent(sourceStr);
+		window.open(url, '_blank');
+	}
 }
