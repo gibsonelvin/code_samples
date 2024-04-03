@@ -24,7 +24,7 @@ class Drawer {
 	}
 
 	allocateColors() {
-		let colors = ['#000000', '#FFFFFF', '#00FF00', '#0000FF', '#FF0000', '#FFFF00', '#0000FF'];
+		let colors = ['#000000', '#FFFFFF', '#00FF00', '#0000FF', '#FF0000', '#FFFF00', '#00FFFF'];
 		for(let i in colors) {
 			let selector = document.createElement("div");
 			selector.setAttribute("id", "color_" + colors[i].substring(1));
