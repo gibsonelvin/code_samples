@@ -38,8 +38,8 @@
 `notebook_converter` - I was tasked with converting a slew of Jupyter Notebooks into actual python modules, I wrote this script to do the work for me. This gets the notebooks into actual python files.
 
 `data-request` - I wrote code in React and NodeJS to implement a Data request feature as part of a larger web application. The code covered 4 repositories represented here as folders:
-	`api` - Routed end points responsible for sending and receiving data as well as some data grooming.
-	`fetch-api` - Request framework used to facilitate requests to the API, with all api routes defined as reusable objects.
-	`db` - DB Models and migrations.
-	`portal` - Web Application UI with pages and components.
+	api - Routed end points responsible for sending and receiving data as well as some data grooming.
+	fetch-api - Request framework used to facilitate requests to the API, with all api routes defined as reusable objects.
+	db - DB Models and migrations.
+	portal - Web Application UI with pages and components.
 
